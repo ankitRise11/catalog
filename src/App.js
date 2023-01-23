@@ -3,6 +3,7 @@ import "./App.css";
 import Feed from "./Components/Feed";
 import Main from "./Components/Main";
 import NavBar from "./Components/NavBar";
+import ShortContent from "./Components/ShortContent";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main/>}/>
           <Route path="/feed" element={<Feed/>}/>
+          <Route path="/shortcontent" element={<ShortContent/>}/>
         </Routes>
     </div>
   );
