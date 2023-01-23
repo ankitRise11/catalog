@@ -33,7 +33,7 @@ const Main = () => {
         <Row style={{marginTop: "100px"}}>
           {cards.map((card) => (
             <Col className="mb-2">
-              <img className="rounded" src={card.imgSrc} width="250px" height="300px" />
+              <img className="rounded" src={card.imgSrc} width="250px" height="300px" alt="displayPic" />
             </Col>
           ))}
         </Row>
