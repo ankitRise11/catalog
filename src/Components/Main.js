@@ -29,7 +29,7 @@ const Main = () => {
   return (
     <div>
       <Container>
-        <h1 className="text-center display-2 mt-4">Lorem Ipsum</h1>
+        <h1 className="text-center display-2 mt-4">Catalog</h1>
         <Row style={{marginTop: "100px"}}>
           {cards.map((card) => (
             <Col className="mb-2">

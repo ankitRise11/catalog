@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
 import Feed from "./Components/Feed";
 import Main from "./Components/Main";
 import NavBar from "./Components/NavBar";

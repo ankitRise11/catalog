@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import StackGrid from "react-stack-grid";
 import display1 from "../Assets/1.jpeg";
 import display2 from "../Assets/2.jpeg";
@@ -12,85 +12,138 @@ import display9 from "../Assets/9.jpeg";
 import display10 from "../Assets/10.jpeg";
 import display11 from "../Assets/11.jpeg";
 import display12 from "../Assets/12.jpeg";
+import { useNavigate } from "react-router-dom";
+import "../App.css";
+import { Button } from "react-bootstrap";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../firebase";
+import {auth} from '../firebase'
 
 const cards = [
   {
     id: "1",
     imgSrc: display1,
-    tag: "food"
+    tag: "food",
   },
   {
     id: "2",
     imgSrc: display2,
-    tag: "festival"
+    tag: "travel",
   },
   {
     id: "3",
     imgSrc: display3,
-    tag:"music"
+    tag: "music",
   },
   {
     id: "4",
     imgSrc: display4,
-    tag:"dance"
+    tag: "gaming",
   },
   {
     id: "5",
     imgSrc: display5,
-    tag:"fitness"
+    tag: "art",
   },
   {
     id: "6",
     imgSrc: display6,
-    tag:"health"
+    tag: "health & wellness",
   },
   {
     id: "7",
     imgSrc: display7,
-    tag:"fashion"
+    tag: "fashion",
   },
   {
     id: "8",
     imgSrc: display8,
-    tag:"books"
-    
+    tag: "education",
   },
   {
     id: "9",
     imgSrc: display9,
-    tag:"nature"
-    
+    tag: "politics",
   },
   {
     id: "10",
     imgSrc: display10,
-    tag:"technology"
-    
+    tag: "technology",
   },
   {
     id: "11",
     imgSrc: display11,
-    tag:"business"
-    
+    tag: "business",
   },
   {
     id: "12",
     imgSrc: display12,
-    tag:"sports"
-  }
+    tag: "sports",
+  },
 ];
-
 const Feed = () => {
+  const navigate = useNavigate();
+  const [selectedCards, setSelectedCards] = useState([]);
+
+  const handleAdd = async (e) => {
+    try {
+      // Get the currently logged in user
+      const user = auth().currentUser;
+      if(user){
+        // Save the data to Firebase
+        await db.collection('preference').doc(user.uid).set({
+          selectedCards,
+          user
+        });
+        // Navigate to the next page
+        navigate('/shortContent');
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div>
       <h1 className="text-center m-4">Pick Your Interests</h1>
-    <StackGrid monitorImagesLoaded={true} columnWidth={250} className="m-4">
-      {cards.map((card) =>(
-        <div key={card.id}>
-          <img width={250} src={card.imgSrc} alt={card.tag} />
+      <div className="row">
+        <div className="col">
+          <StackGrid
+            monitorImagesLoaded={true}
+            columnWidth={250}
+            className="m-4"
+          >
+            {cards.map((card) => (
+              <div key={card.id}>
+                <img
+                  width={250}
+                  src={card.imgSrc}
+                  alt={card.tag}
+                  className={`rounded ${
+                    selectedCards.includes(card.id) ? "clicked" : ""
+                  }`}
+                  onClick={() => {
+                    let updatedSelectedCards = [...selectedCards];
+                    if (selectedCards.includes(card.id)) {
+                      updatedSelectedCards = updatedSelectedCards.filter(
+                        (id) => id !== card.id
+                      );
+                    } else {
+                      updatedSelectedCards.push(card.id);
+                    }
+                    setSelectedCards(updatedSelectedCards);
+                  }}
+                />
+              </div>
+            ))}
+          </StackGrid>
+          <div className="d-flex justify-content-center mb-2">
+            <Button className="mx-4" onClick={handleAdd}>
+              Next
+            </Button>
+          </div>
         </div>
-      ))}
-    </StackGrid>
+      </div>
     </div>
   );
 };
