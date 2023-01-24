@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Feed from "./Components/Feed";
+import LongContent from "./Components/LongContent";
 import Main from "./Components/Main";
 import NavBar from "./Components/NavBar";
 import ShortVideo from "./Components/ShortVideo";
@@ -12,6 +13,7 @@ function App() {
           <Route path="/" element={<Main/>}/>
           <Route path="/feed" element={<Feed/>}/>
           <Route path="/shortVideo" element={<ShortVideo/>} />
+          <Route path="/longContent" element={<LongContent/>} />
         </Routes>
     </div>
   );

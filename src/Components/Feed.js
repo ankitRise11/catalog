@@ -15,7 +15,7 @@ import display12 from "../Assets/12.jpeg";
 import { useNavigate, Link } from "react-router-dom";
 import "../App.css";
 import { Button } from "react-bootstrap";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, addDoc, collection } from "firebase/firestore";
 import { db } from "../firebase";
 import { auth } from "../firebase";
 
@@ -86,20 +86,15 @@ const Feed = () => {
   const [selectedCards, setSelectedCards] = useState([]);
 
   const handleAdd = async (e) => {
+    console.log(...selectedCards)
     try {
-      // Get the currently logged in user
-      const user = auth().currentUser;
-      if (user) {
-        // Save the data to Firebase
-        await db.collection("preference").doc(user.uid).set({
-          selectedCards,
-          user,
-        });
-        // Navigate to the next page
-        navigate("/shortContent");
-      }
-    } catch (error) {
-      console.error(error);
+      const user = auth.currentUser
+      await setDoc(doc(db, "preferences"), {
+        ...selectedCards,
+        user
+      });
+    } catch (err) {
+      console.log(err);
     }
   };
 
@@ -138,11 +133,9 @@ const Feed = () => {
             ))}
           </StackGrid>
           <div className="d-flex justify-content-center mb-2">
-            <Link to="/shortVideo">
-              <Button className="mx-4" onClick={handleAdd}>
-                Next
-              </Button>
-            </Link>
+            <Button className="mx-4" onClick={handleAdd}>
+              Next
+            </Button>
           </div>
         </div>
       </div>
