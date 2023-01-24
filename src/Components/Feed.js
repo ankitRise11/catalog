@@ -12,12 +12,12 @@ import display9 from "../Assets/9.jpeg";
 import display10 from "../Assets/10.jpeg";
 import display11 from "../Assets/11.jpeg";
 import display12 from "../Assets/12.jpeg";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../App.css";
 import { Button } from "react-bootstrap";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase";
-import {auth} from '../firebase'
+import { auth } from "../firebase";
 
 const cards = [
   {
@@ -89,14 +89,14 @@ const Feed = () => {
     try {
       // Get the currently logged in user
       const user = auth().currentUser;
-      if(user){
+      if (user) {
         // Save the data to Firebase
-        await db.collection('preference').doc(user.uid).set({
+        await db.collection("preference").doc(user.uid).set({
           selectedCards,
-          user
+          user,
         });
         // Navigate to the next page
-        navigate('/shortContent');
+        navigate("/shortContent");
       }
     } catch (error) {
       console.error(error);
@@ -119,7 +119,7 @@ const Feed = () => {
                   width={250}
                   src={card.imgSrc}
                   alt={card.tag}
-                  className={`rounded ${
+                  className={`img rounded ${
                     selectedCards.includes(card.id) ? "clicked" : ""
                   }`}
                   onClick={() => {
@@ -138,9 +138,11 @@ const Feed = () => {
             ))}
           </StackGrid>
           <div className="d-flex justify-content-center mb-2">
-            <Button className="mx-4" onClick={handleAdd}>
-              Next
-            </Button>
+            <Link to="/shortVideo">
+              <Button className="mx-4" onClick={handleAdd}>
+                Next
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

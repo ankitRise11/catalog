@@ -7,6 +7,7 @@ import Button from "react-bootstrap/Button";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../firebase";
+import catalog from "../Assets/Logo.png";
 const NavBar = () => {
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
@@ -21,9 +22,9 @@ const NavBar = () => {
     navigate("/feed")
   };
   return (
-    <Navbar bg="dark" variant="dark">
+    <Navbar bg="dark" variant="dark" className="sticky-top">
       <Container>
-        <Navbar.Brand href="#home">Catalog</Navbar.Brand>
+        <Navbar.Brand href="#home"><img width="40px" height="40px" src={catalog} /></Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>

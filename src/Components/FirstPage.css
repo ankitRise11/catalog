@@ -1,0 +1,125 @@
+.main{
+    display: flex;
+    height: 480px;
+}
+
+.LogoMain{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.Logo{
+    height: 20%;
+    width: 20%; 
+    
+}
+
+.image1{
+width: 300px;
+height: 500px;
+left: -29px;
+top: 524px;
+border-radius: 16px;
+
+}
+.image2{
+width: 300px;
+height: 500px;
+left: -29px;
+top: 524px;
+border-radius: 16px;
+margin-top: 5%;
+}
+.image3{
+width: 300px;
+height: 500px;
+left: -29px;
+top: 524px;
+border-radius: 16px;
+margin-top: 7%;
+}
+.image4{
+width: 300px;
+height: 500px;
+left: -29px;
+top: 524px;
+border-radius: 16px;
+margin-top: 5%;
+}
+.image5{
+    width: 300px;
+    height: 500px;
+    left: -29px;
+    top: 524px;
+    border-radius: 16px;
+}
+
+.animate1 {
+    animation:centerme 2s;
+
+    -webkit-animation:centerme 2s;
+    position:relative;
+    animation-fill-mode:forwards;
+    -webkit-animation-fill-mode:forwards;
+ }
+ .animate2 {
+    animation:centerme 2s;
+
+    -webkit-animation:centerme 2s;
+    position:relative;
+    animation-fill-mode:forwards;
+    -webkit-animation-fill-mode:forwards;
+ }
+ .animate3 {
+    animation:centerme 2s;
+    -webkit-animation:centerme 2s;
+    position:relative;
+    animation-fill-mode:forwards;
+    -webkit-animation-fill-mode:forwards;
+ }
+
+ .animate4 {
+    animation:centerme 2s;
+ 
+    -webkit-animation:centerme 2s;
+    position:relative;
+    animation-fill-mode:forwards;
+    -webkit-animation-fill-mode:forwards;
+ }
+ .animate5 {
+    animation:centerme 2s;
+ 
+    -webkit-animation:centerme 2s;
+    position:relative;
+    animation-fill-mode:forwards;
+    -webkit-animation-fill-mode:forwards;
+ }
+ 
+ @keyframes centerme  {
+    0% {
+       top:40%;
+       opacity: 0;
+    }
+    100% {
+       top: 0%;
+       opacity: 1;
+    }
+ }
+ 
+ @-webkit-keyframes centerme  {
+    0% {
+       top:40%;
+       opacity: 0;
+    }
+    
+    100% {
+       top: 0%;
+       opacity: 1;
+    }
+ }
+ 
+ 
+
+ 

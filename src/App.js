@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Feed from "./Components/Feed";
 import Main from "./Components/Main";
 import NavBar from "./Components/NavBar";
-import ShortContent from "./Components/ShortContent";
+import ShortVideo from "./Components/ShortVideo";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main/>}/>
           <Route path="/feed" element={<Feed/>}/>
-          <Route path="/shortcontent" element={<ShortContent/>}/>
+          <Route path="/shortVideo" element={<ShortVideo/>} />
         </Routes>
     </div>
   );

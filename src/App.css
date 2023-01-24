@@ -1,14 +1,14 @@
-img {
+.img {
     transition: box-shadow 0.5s;
     opacity: 1;
     cursor:pointer;
 }
-img:hover {
+.img:hover {
     box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
     position: relative;
     opacity: 0.5;
 }
-img:hover:after {
+.img:hover:after {
     content: attr(alt);
     display: block;
     position: absolute;

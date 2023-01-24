@@ -6,6 +6,13 @@ import display1 from "../Assets/1.jpeg";
 import display2 from "../Assets/2.jpeg";
 import display3 from "../Assets/3.jpeg";
 import display4 from "../Assets/4.jpeg";
+import Carousel from 'react-bootstrap/Carousel';
+import FirstPage from "./FirstPage";
+import Catalog from "../Assets/CATALOG.png";
+import "./FirstPage.css";
+import Second from "./Second";
+import Third from "./Third";
+
 
 const cards = [
   {
@@ -27,17 +34,22 @@ const cards = [
 ];
 const Main = () => {
   return (
-    <div>
-      <Container>
-        <h1 className="text-center display-2 mt-4">Catalog</h1>
-        <Row style={{marginTop: "100px"}}>
-          {cards.map((card) => (
-            <Col className="mb-2">
-              <img className="rounded" src={card.imgSrc} width="250px" height="300px" alt="displayPic" />
-            </Col>
-          ))}
-        </Row>
-      </Container>
+    <div className="m-2">
+      <div className="LogoMain">
+        <img src={Catalog} className="Logo"></img>
+      </div>
+      <Carousel variant="dark">
+      <Carousel.Item interval={2000}>
+        <FirstPage/>
+      </Carousel.Item>
+      <Carousel.Item interval={2000}>
+      <Second/>
+
+      </Carousel.Item>
+      <Carousel.Item interval={2000}>
+      <Third/>
+      </Carousel.Item>
+    </Carousel>
     </div>
   );
 };
