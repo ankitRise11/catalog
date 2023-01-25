@@ -53,7 +53,6 @@ const Sidebar = () => {
           ]}
         />
       </div>
-      <div>Main</div>
     </div>
   );
 };

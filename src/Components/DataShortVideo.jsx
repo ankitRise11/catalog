@@ -5,11 +5,14 @@ import "./Data.css";
 const DataShortVideo=()=>{
     return(
         <>
-        {education.map((vid) =>(
         <div className="bodyHider">
-                      <iframe width="350" height="740" src="https://www.youtube.com/embed/{vid.link}?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
+        {education.map((vid) =>(
+            <section>
+                <iframe width="350" height="740" src={vid.link} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                {/* <iframe src="https://widget.tagembed.com/84153?view" style=" width:100%;height:500px;overflow: auto;" frameborder="0" allowtransparency="true"></iframe> */}
+            </section>
             ))}
+        </div>
         </>
     )
 }

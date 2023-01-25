@@ -103,6 +103,11 @@ const Feed = () => {
       <h1 className="text-center m-4">Pick Your Interests</h1>
       <div className="row">
         <div className="col">
+        <div className="d-flex justify-content-end mx-5">
+            <Button className="mx-5" onClick={handleAdd}>
+              Next
+            </Button>
+          </div>
           <StackGrid
             monitorImagesLoaded={true}
             columnWidth={250}
@@ -132,11 +137,6 @@ const Feed = () => {
               </div>
             ))}
           </StackGrid>
-          <div className="d-flex justify-content-center mb-2">
-            <Button className="mx-4" onClick={handleAdd}>
-              Next
-            </Button>
-          </div>
         </div>
       </div>
     </div>

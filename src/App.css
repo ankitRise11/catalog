@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 .img {
     transition: box-shadow 0.5s;
     opacity: 1;
@@ -21,4 +22,8 @@
 
 .clicked {
     opacity: 0.5;
+}
+
+.logoFont {
+    font-family: 'Abril Fatface', cursive;
 }

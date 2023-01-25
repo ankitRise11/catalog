@@ -1,13 +1,14 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import Button from "react-bootstrap/Button";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../firebase";
 import catalog from "../Assets/Logo.png";
+import Nav from "react-bootstrap/Nav";
 const NavBar = () => {
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
@@ -19,13 +20,45 @@ const NavBar = () => {
     } catch (error) {
       console.log(error);
     }
-    navigate("/feed")
+    navigate("/feed");
   };
+  const navLinkStyles = ({isActive}) => {
+    return {
+      fontWeight: isActive ? 'bold' : 'normal'
+    }
+  }
   return (
+    
     <Navbar bg="dark" variant="dark" className="sticky-top">
       <Container>
-        <Navbar.Brand href="#home"><img width="40px" height="40px" src={catalog} /></Navbar.Brand>
+        <Navbar.Brand href="#home" className="logoFont">
+          <img width="50px" height="50px" src={catalog} />
+          Catalog.
+        </Navbar.Brand>
         <Navbar.Toggle />
+        <Navbar.Collapse className="justify-content-end me-5">
+          <Navbar.Text>
+            {user && (
+              <div className="ms-5">
+                <Navbar.Text className="px-4 border-end text-light">
+                  <NavLink className="text-decoration-none" style={navLinkStyles} to="/shortContent">
+                    Short Content
+                  </NavLink>
+                </Navbar.Text>
+                <Navbar.Text className="px-4 border-end text-light">
+                  <NavLink className="text-decoration-none" style={navLinkStyles} to="/shortVideo">
+                    Short Video
+                  </NavLink>
+                </Navbar.Text>
+                <Navbar.Text className="px-4 text-light">
+                  <NavLink className="text-decoration-none" style={navLinkStyles} to="/longContent">
+                    Long Content
+                  </NavLink>
+                </Navbar.Text>
+              </div>
+            )}
+          </Navbar.Text>
+        </Navbar.Collapse>
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
             {!user && (

@@ -1,47 +1,33 @@
 const education=[
     {
-        link:"ZWQwjDkEzHc"
+    link:"https://www.youtube.com/embed/ZWQwjDkEzHc"
+},
+{
+    link:"https://www.youtube.com/embed/h4i_Ncw72UQ"
+},
+{
+    link:"https://www.youtube.com/embed/F7U3J9AJS8M"
     },
+
     {
-        link:"h4i_Ncw72UQ"
-    },
-    {
-        link:"F7U3J9AJS8M"
-    },
-    {
-        link:"siEF8YnbJ3o"
-    },
-    
-    {
-          link:"c1lKaWnF5x8"
+          link:"https://www.youtube.com/embed/siEF8YnbJ3o"
     },
     
     {
-          link:"tqDMS8TbJy8"
+          link:"https://www.youtube.com/embed/c1lKaWnF5x8"
     },
     
     {
-          link:"us0COo6mTYI"
+          link:"https://www.youtube.com/embed/tqDMS8TbJy8"
     },
     
     {
-          link:"q966TbakCV0"
+          link:"https://www.youtube.com/embed/us0COo6mTYI"
     },
     
     {
-          link:"zjYvd9Bpw78"
-    },
-    
-    {
-          link:"GjrSip0BLlQ"
+          link:"https://www.youtube.com/embed/q966TbakCV0"
     }
-
-    ];
-
+    ]
 
 export default education;
-
-
-
-    
-    
