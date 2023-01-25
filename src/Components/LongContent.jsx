@@ -3,12 +3,11 @@ import "./Data.css";
 import travel from "../api/TravelLongVideo";
 import Sidebar from "./Sidebar";
 
+
 const LongContent = () => {
   return (
     <>
-      <div className="d-flex">
-        <Sidebar />
-        <div className="bodyHider">
+        <div className="bodyHider bg-dark">
           {travel.map((vid) => (
             <section>
               <iframe
@@ -23,7 +22,6 @@ const LongContent = () => {
             </section>
           ))}
         </div>
-      </div>{" "}
     </>
   );
 };

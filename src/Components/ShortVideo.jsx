@@ -4,12 +4,9 @@ import Sidebar from "./Sidebar";
 
 const ShortVideo = () => {
   return (
-    <>
-      <div className="d-flex">
-        <Sidebar />
+    <div>
         <DataShortVideo/>
-      </div>
-    </>
+    </div>
   );
 };
 

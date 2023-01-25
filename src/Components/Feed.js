@@ -99,8 +99,8 @@ const Feed = () => {
   };
 
   return (
-    <div>
-      <h1 className="text-center m-4">Pick Your Interests</h1>
+    <div className="bg-dark">
+      <h1 className="text-center py-2 text-light">Pick Your Interests</h1>
       <div className="row">
         <div className="col">
         <div className="d-flex justify-content-end mx-5">

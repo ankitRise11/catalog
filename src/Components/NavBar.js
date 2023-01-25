@@ -29,16 +29,17 @@ const NavBar = () => {
   }
   return (
     
-    <Navbar bg="dark" variant="dark" className="sticky-top">
+    <Navbar bg="dark" variant="dark" className="sticky-top shadow-lg">
       <Container>
+        <NavLink to="/" className="text-decoration-none">
         <Navbar.Brand href="#home" className="logoFont">
           <img width="50px" height="50px" src={catalog} />
           Catalog.
         </Navbar.Brand>
+        </NavLink>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end me-5">
           <Navbar.Text>
-            {user && (
               <div className="ms-5">
                 <Navbar.Text className="px-4 border-end text-light">
                   <NavLink className="text-decoration-none" style={navLinkStyles} to="/shortContent">
@@ -56,17 +57,15 @@ const NavBar = () => {
                   </NavLink>
                 </Navbar.Text>
               </div>
-            )}
           </Navbar.Text>
         </Navbar.Collapse>
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-            {!user && (
-              <Button onClick={GoogleLogin} variant="outline-light">
-                <FcGoogle size={30} />
-                <a> Continue with Google</a>
+            <NavLink to="/feed">
+              <Button variant="outline-light">
+                Continue to Site
               </Button>
-            )}
+              </NavLink>
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>

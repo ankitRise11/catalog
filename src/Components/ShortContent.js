@@ -6,6 +6,9 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Sidebar from "./Sidebar";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 const ShortContent = () => {
   const Item = styled(Paper)(({ theme }) => ({
@@ -17,34 +20,23 @@ const ShortContent = () => {
   }));
 
   return (
-    <>
-    <div className="d-flex">
-    <Sidebar/>
-      <Box sx={{ width: "100%" }}>
-        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-          {TravelShortContent.map((data) => (
-            <Grid item xs={6}>
-              <Item>
-                {["Dark"].map((variant) => (
-                  <Card
-                    style={{ width: "100%", height: "200px" }}
-                    bg={variant.toLowerCase()}
-                    key={variant}
-                    text={variant.toLowerCase() === "light" ? "dark" : "white"}
-                  >
-                    <Card.Body>
-                      <Card.Title> {data.title}</Card.Title>
-                      <Card.Text>{data.content}</Card.Text>
-                    </Card.Body>
-                  </Card>
-                ))}
-              </Item>
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
-      </div>
-    </>
+    <div className="bg-dark">
+      {TravelShortContent.map((data) => (
+        <div class="row justify-content-center py-2">
+          <div class="col-sm-6 col-md-3">
+            <div class="card border-white">
+            <div class="card-header">{data.title}</div>
+              <div class="card-body">
+                <p class="card-text">
+                  {data.content}
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      ))}
+    </div>
   );
 };
 
