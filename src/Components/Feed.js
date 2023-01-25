@@ -104,9 +104,10 @@ const Feed = () => {
       <div className="row">
         <div className="col">
         <div className="d-flex justify-content-end mx-5">
-            <Button className="mx-5" onClick={handleAdd}>
+            <Link to='/shortVideo'><Button className="mx-5" onClick={handleAdd}>
               Next
             </Button>
+            </Link>
           </div>
           <StackGrid
             monitorImagesLoaded={true}
