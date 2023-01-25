@@ -4,11 +4,6 @@ import Card from "react-bootstrap/Card";
 import { styled } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
-import Box from "@mui/material/Box";
-import Sidebar from "./Sidebar";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 
 const ShortContent = () => {
   const Item = styled(Paper)(({ theme }) => ({
